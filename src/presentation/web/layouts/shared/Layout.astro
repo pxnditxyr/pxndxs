@@ -1,0 +1,76 @@
+---
+import { SITE_INFO } from '@/constants/site-info'
+import '@fontsource-variable/space-grotesk'
+import '@/presentation/assets/styles/global.css'
+
+interface Props {
+  title?:       string
+  description?: string
+  image?:       string
+  author?:      string
+}
+
+const {
+  title = SITE_INFO.title,
+  description = SITE_INFO.description,
+  author = SITE_INFO.author,
+  image = SITE_INFO.image,
+} = Astro.props
+
+
+const { favicon } = SITE_INFO
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smoooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href={ favicon } />
+
+    <meta name="author" content={ author } />
+    <meta name="description" content={ description } />
+    <meta name="images" content={ image } />
+
+    <meta property="og:title" content={ title } />
+    <meta property="og:description" content={ description } />
+    <meta property="og:image" content={ image } />
+    <meta property="og:url" content={ Astro.url } />
+    <meta property="og:site_name" content={ title } />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ title } />
+    <meta name="twitter:description" content={ description } />
+    <meta name="twitter:image" content={ image } />
+    <meta name="twitter:url" content={ Astro.url } />
+
+    <script is:inline>
+    const getThemePreference = () => {
+      if ( typeof localStorage !== 'undefined' && localStorage.getItem( 'app-theme' ) ) {
+        return localStorage.getItem( 'app-theme' )
+      }
+      return window.matchMedia( '(prefers-color-scheme: dark)' ).matches ? 'dark' : 'light'
+    }
+    const isDark = getThemePreference() === 'dark'
+    document.documentElement.classList[ isDark ? 'add' : 'remove' ]( 'dark' )
+
+
+    if ( typeof localStorage !== 'undefined' ) {
+      const observer = new MutationObserver( () => {
+        const isDark = document.documentElement.classList.contains( 'dark' )
+        localStorage.setItem( 'theme', isDark ? 'dark' : 'light' )
+      } )
+      observer.observe( document.documentElement, { attributes: true, attributeFilter: [ 'class' ] } )
+    }
+    </script>
+
+    <slot name="head" />
+
+    <title> { title } </title>
+  </head>
+
+  <body class="w-full min-h-dvh grid grid-rows-[auto_1fr_auto]">
+    <slot />
+  </body>
+
+</html>

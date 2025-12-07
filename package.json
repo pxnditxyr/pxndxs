@@ -1,0 +1,38 @@
+{
+  "name": "pxndxs",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "Personal Portfolio & Digital Lab. High-performance static site built with Astro & Tailwind.",
+  "author": "Pxndxs <pxndxs.contact@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://pxndxs.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pxnditxyr/pxndxs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pxnditxyr/pxndxs/issues"
+  },
+  "keywords": [
+    "astro",
+    "tailwindcss",
+    "typescript",
+    "portfolio",
+    "fullstack",
+    "rust",
+    "physics",
+    "ai"
+  ],
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource-variable/space-grotesk": "^5.2.10",
+    "@tailwindcss/vite": "^4.1.17",
+    "astro": "^5.16.4",
+    "tailwindcss": "^4.1.17"
+  }
+}
