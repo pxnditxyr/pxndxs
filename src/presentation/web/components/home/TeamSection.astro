@@ -1,0 +1,40 @@
+---
+import { getTranslations } from '@/constants/i18n'
+
+const t = getTranslations()
+---
+
+<section class="relative z-10 py-20 overflow-hidden">
+  <div class="max-w-5xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-8">{t.team.title}</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <div class="glass p-6 rounded-2xl border-t-4 border-black dark:border-white">
+        <div class="text-6xl mb-4">🐼</div>
+        <h3 class="text-xl font-bold">{t.team.zen.title}</h3>
+        <p class="text-sm text-gray-500 mt-2">
+          {t.team.zen.description}
+        </p>
+      </div>
+
+      <div class="glass p-6 rounded-2xl border-t-4 border-brand-light dark:border-brand-accent transform hover:scale-105 transition duration-300 shadow-xl">
+        <div class="w-20 h-20 mx-auto bg-gray-300 rounded-full mb-4 overflow-hidden relative">
+          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Enrique&backgroundColor=b6e3f4" alt="Avatar Enrique" loading="lazy" />
+        </div>
+        <h3 class="text-xl font-bold">{t.team.lead.name}</h3>
+        <p class="text-sm text-gray-500 mt-2">
+          {t.team.lead.description}
+        </p>
+      </div>
+
+      <div class="glass p-6 rounded-2xl border-t-4 border-orange-400">
+        <div class="text-6xl mb-4">🐱</div>
+        <h3 class="text-xl font-bold">{t.team.curiosity.title}</h3>
+        <p class="text-sm text-gray-500 mt-2">
+          {t.team.curiosity.description}
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>

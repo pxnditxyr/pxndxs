@@ -1,0 +1,19 @@
+---
+import { Icon } from 'astro-icon/components'
+import { getTranslations } from '@/constants/i18n'
+
+const t = getTranslations()
+---
+
+<footer class="relative z-10 py-8 border-t border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <p class="text-gray-500 dark:text-gray-400 flex items-center justify-center gap-1">
+      &copy; {new Date().getFullYear()} Enrique. {t.footer.madeWith}
+      <Icon
+        name="tabler:heart"
+        class="text-red-500 min-w-5 min-h-5"
+      />
+      {t.footer.technologies}
+    </p>
+  </div>
+</footer>

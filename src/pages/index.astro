@@ -1,8 +1,15 @@
 ---
-import Layout from '@/presentation/web/layouts/shared/Layout.astro'
+import StackSection from '@/presentation/web/components/home/StackSection.astro'
+import HomeLayout from '@/presentation/web/layouts/home/HomeLayout.astro'
+import HeroSection from '@/presentation/web/components/home/HeroSection.astro'
+import TeamSection from '@/presentation/web/components/home/TeamSection.astro'
 
 ---
 
-<Layout>
-  <h1 class="text-5xl">Hello, Pxndxs 🐼!</h1>
-</Layout>
+<HomeLayout>
+
+  <HeroSection />
+  <StackSection />
+  <TeamSection />
+
+</HomeLayout>

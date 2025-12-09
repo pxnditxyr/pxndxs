@@ -1,0 +1,40 @@
+---
+import { TECH_STACK } from '@/constants/tech-stack'
+import { Icon } from 'astro-icon/components'
+import { getTranslations } from '@/constants/i18n'
+
+const t = getTranslations()
+---
+
+<section
+  id="stack"
+  class="relative z-10 py-20 bg-gray-100/50 dark:bg-slate-800/50"
+>
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-12 text-center flex items-center justify-center gap-3">
+      <Icon
+        name="tabler:cell"
+        class="w-8 h-8"
+      />
+      {t.stack.title}
+    </h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+      { TECH_STACK.map( ( tech ) => (
+        <div
+          class="glass p-4 rounded-xl hover:-translate-y-2 transition duration-300 cursor-default group"
+        >
+          <div class="text-xs font-bold opacity-50 mb-1">
+            { tech.type }
+          </div>
+          <div class={ `text-3xl font-bold mb-1 ${ tech.color }` }>
+            { tech.symbol }
+          </div>
+          <div class="text-sm font-medium group-hover:text-brand-light dark:group-hover:text-brand-accent transition">
+            { tech.name }
+          </div>
+        </div>
+      ) ) }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,20 @@
+---
+import ParticleCanvas from '../../components/background/ParticleCanvas.astro'
+import Navbar from '../../components/shared/Navbar.astro'
+import Footer from '../../components/shared/Footer.astro'
+import Layout from '../shared/Layout.astro'
+
+
+---
+<Layout>
+  <ParticleCanvas />
+
+  <header>
+    <Navbar />
+  </header>
+  <main>
+    <slot />
+  </main>
+
+  <Footer />
+</Layout>

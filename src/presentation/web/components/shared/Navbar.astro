@@ -1,0 +1,77 @@
+---
+import { Icon } from 'astro-icon/components'
+import { getTranslations } from '@/constants/i18n'
+
+const t = getTranslations()
+---
+
+<nav class="fixed w-full z-50 glass transition-all duration-300 border-b border-gray-200 dark:border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center gap-2">
+        <Icon
+          name="tabler:atom"
+          class="min-w-8 min-h-8 text-brand-light dark:text-brand-accent"
+        />
+        <span
+          class="font-bold text-xl tracking-tighter"
+        >
+          {t.navbar.brand}
+          <span class="text-brand-light dark:text-brand-accent">{t.navbar.brandSuffix}</span>
+        </span>
+
+      </div>
+        <div class="flex items-center gap-6">
+          <div class="hidden md:flex gap-6 text-sm font-medium">
+            <a
+              href="#team"
+              class="hover:text-brand-light dark:hover:text-brand-accent transition">
+              {t.navbar.about}
+            </a>
+            <a
+              href="#stack"
+              class="hover:text-brand-light dark:hover:text-brand-accent transition">
+              {t.navbar.techStack}
+            </a>
+            <a
+              href="#projects"
+              class="hover:text-brand-light dark:hover:text-brand-accent transition">
+              {t.navbar.projects}
+            </a>
+          </div>
+          <button
+            id="app-theme-toggle"
+            class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-800 transition cursor-pointer"
+          >
+            <Icon
+              name="tabler:sunset-2"
+              class="min-w-8 min-h-8 hidden dark:block text-yellow-400"
+              size={ 32 }
+            />
+            <Icon
+              name="tabler:moon-stars"
+              class="min-w-8 min-h-8 dark:hidden text-brand-light"
+              size={ 32 }
+            />
+          </button>
+        </div>
+    </div>
+  </div>
+
+</nav>
+
+<script>
+  const themeToggleBtn = document.getElementById( 'app-theme-toggle' ) as HTMLButtonElement
+
+  const handleToggle = () => {
+    const element = document.documentElement
+    element.classList.toggle( 'dark' )
+
+    const isDark = element.classList.contains( 'dark' )
+    localStorage.setItem( 'app-theme', isDark ? 'dark' : 'light' )
+  }
+
+  if ( themeToggleBtn ) {
+    themeToggleBtn.addEventListener( 'click', handleToggle )
+  }
+</script>
